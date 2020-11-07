@@ -1,0 +1,9 @@
+LAM 1
+HPC 1
+HPL 1
+BCC 1
+DIS 1
+SG 1
+DG 1
+DD 1
+P 1

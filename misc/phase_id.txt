@@ -1,0 +1,9 @@
+LAM 0
+HPC 1
+HPL 2
+BCC 3
+DIS 4
+SG 5
+DG 6
+DD 7
+P 8

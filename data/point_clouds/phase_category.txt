@@ -1,0 +1,9 @@
+LAM	lam
+HPC	hpc
+HPL	hpl
+BCC	bcc
+DIS	dis
+SG	sg
+DG	dg
+DD	dd
+P	p
