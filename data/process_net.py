@@ -11,28 +11,29 @@ class NetPts(object):
         self.num_samples = num_samples
         self.trans = trans
         self.rot = rot
-        self.dim = np.linspace(0, 1, np.random.randint(20,30))
+        self.dim = np.linspace(0, 1, np.random.randint(20, 30))
         self.net_param = {'dd':{'period': 2 * np.pi,
-                                't': 0.6 + 0.3 * np.random.rand(),
+                                't': 0.6 + 0.3 * np.random.rand(), # 0.6 <= t <= 0.9
                                 'fp': self.dd_pos,
                                 'fn': self.dd_neg
                                },
                          'dg':{'period': 2 * np.pi,
-                               't': 0.9 + 0.3 * np.random.rand(),
+                               't': 0.9 + 0.3 * np.random.rand(), # 0.9 <= t <= 1.2
                                'fp': self.dg_pos,
                                'fn': self.dg_neg
                               },
                          'p':{'period': 4 * np.pi,
-                              't': 0.4 * np.random.rand(),
+                              't': 0.4 * np.random.rand(), # 0 <= t <= 0.4
                               'fp': self.p_pos,
                               'fn': self.p_neg
                              },
                          'sg':{'period': 2 * np.pi,
-                               't': 0.6 + 0.4 * np.random.rand(),
+                               't': 0.6 + 0.4 * np.random.rand(), # 0.6 <= t <= 1.0
                                'fp': self.sg_pos,
                                'fn': self.sg_neg
                               },
                           }
+        # minimum and maximum standard deviation of the mean-0 white noise
         self.sigma_min = .05
         self.sigma_max = .30 
         
@@ -50,22 +51,22 @@ class NetPts(object):
 
     def rand_fluctuation(self, pos, sigma_min, sigma_max):
         sigma = sigma_min + (sigma_max - sigma_min) * np.random.rand()
-        X, Y, Z = pos[:,0], pos[:,1], pos[:,2]
-        X += np.array([np.random.uniform(-1,1) for _ in range(len(X))]) * sigma
-        Y += np.array([np.random.uniform(-1,1) for _ in range(len(Y))]) * sigma
-        Z += np.array([np.random.uniform(-1,1) for _ in range(len(Z))]) * sigma
+        X, Y, Z = pos[:, 0], pos[:, 1], pos[:, 2]
+        X += np.array([np.random.uniform(-1, 1) for _ in range(len(X))]) * sigma
+        Y += np.array([np.random.uniform(-1, 1) for _ in range(len(Y))]) * sigma
+        Z += np.array([np.random.uniform(-1, 1) for _ in range(len(Z))]) * sigma
         return np.array([X, Y, Z]).T
     
     def replicate_box(self, increment):
         '''
-        Input an increment array, e.g. [-1,0,1] for replicating the box three times in each dimension
+        Input an increment array, e.g. [-1, 0, 1] for replicating the box three times in each dimension
         '''
         combs = []
         for i in increment:
             for j in increment:
                 for k in increment:
                     if not i == j == k == 0:
-                        combs.append([i,j,k])
+                        combs.append([i, j, k])
         return combs
 
     def rand_rotation_matrix(self):
@@ -135,7 +136,8 @@ class NetPts(object):
 
     def p_pos(self, x, y, z, t):
         val = (np.cos(x) + np.cos(y) + np.cos(z)) - t
-        return val
+        return val 
+    
     def p_neg(self, x, y, z, t):
         val = (np.cos(x) + np.cos(y) + np.cos(z)) + t
         return val
@@ -160,7 +162,7 @@ class NetPts(object):
             elif self.category == "p":
                 region = region_neg2
             else:
-                print('Invalid structure name entered.')
+                print('Invalid structure name entered. Please try again.')
                 break
             X_minor, Y_minor, Z_minor = X[region], Y[region], Z[region] 
             pos = np.array([X_minor,Y_minor,Z_minor]).T
@@ -188,10 +190,12 @@ class NetPts(object):
             # Apply a random uniform rotation to the point cloud
             pts = pd.DataFrame(np.dot(pos, self.rand_rotation_matrix()))
             
+            # Save .pts file
             file_name = ('coord_O_%s_%d' %(self.category,i))
             pts_file = 'point_clouds/' + opt.category + '/points/' + file_name + '.pts'
             np.savetxt(pts_file, pts.values, fmt='%.3f', delimiter=" ")
-
+            
+            # Save .seg file
             seg_file = open('point_clouds/' + opt.category + '/points_label/' + file_name + '.seg', 'w')
             for k in range(X_minor.shape[0]):
                 seg_file.write('1\n')
