@@ -92,7 +92,16 @@ The PointNet architecture is taken from [[1]](https://arxiv.org/abs/1612.00593),
      -t: perform random translations of point clouds wrapped by periodic boundary conditions\
      -r: perform random rotations of point clouds wrapped by periodic boundary conditions\
      -n: total number of point clouds (train + test) to generate 
-     
+* Training:
+     ```sh
+     cd  utils
+     python train_classification.py -b 64 -n 1000 -e 100 -d ../data/point_clouds/ -f 
+     ``` 
+     -b: size of minibatch\
+     -n: number of points selected from each point cloud, so that the input point clouds will have uniform dimension n*3\
+     -e: number of training epochs\
+     -d: data path\
+     -f: implement feature transformation (spatial transformer network) 
 
 
 
