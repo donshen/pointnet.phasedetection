@@ -36,15 +36,15 @@
 ## About The Project
 
 ![Product Name Screen Shot][product-screenshot]
+This repo uses PointNet [[1]](https://arxiv.org/abs/1612.00593), a neural network designed for computer vision applications using point clouds. In this study, a properly-trained PointNet was demonstrated to be highly generalizable on morphology detection in molecular simulations, and can be potentially extended to discovery of emerging ordered patterns from non-equilibrium systems.
+
+The PointNet was trained on atomic coordinates of mesophases including lamellar (LAM), body-centered cubic (BCC), hexagonally-packed cylinder (HPC), hexagonally-perforeated lamellar (HPL), and disorderd (DIS) from molecular dynamics (MD) simulation trajectories from our previous work [[2]](https://pubs.acs.org/doi/10.1021/jacs.0c01829), [[3]](https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.9b01248), [[4]](https://pubs.acs.org/doi/abs/10.1021/acsnano.7b09122) and synthetic point clouds for ordered network morphologies that were absent from previous simulations. 
 
 
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+
 
 
 
