@@ -133,10 +133,10 @@ class Pdb2Pts(object):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--category', type=str, required=True, help='category (phase) name: sg (single gyroid), dg (double gyroid), dd (double diamond), p (plumber\'s nightmare')
-    parser.add_argument('-t', '--rand_trans', default=True, type=bool, help='whether to apply random periodic translation')
-    parser.add_argument('-r', '--rand_rot', default=True, type=bool, help='whether to apply random periodic rotation')
+    parser.add_argument('-t', '--rand_trans', action='store_true', help='whether to apply random periodic translation')
+    parser.add_argument('-r', '--rand_rot', action='store_true', help='whether to apply random periodic rotation')
     parser.add_argument('-nt',
-        '--ntrans', type=int, default=1, help='number of random data augmentation (translation+rotation) for each point cloud')
+        '--ntrans', type=int, default=1, help='number of random data augmentation (translation + rotation) for each point cloud')
     opt = parser.parse_args()
     
     if not os.path.exists('point_clouds/%s/points' % opt.category):
@@ -146,8 +146,12 @@ if __name__ == "__main__":
                   
     pdb_path = 'raw/pdb/' + opt.category
 
-    print('Processing pdb files of %s structure...' % opt.category)          
+    print('Processing pdb files of %s structure...' % opt.category)   
+    
+    print(opt.rand_trans)
+    print(opt.rand_rot)
+    
     tic = time.perf_counter()
     Pdb2Pts(opt.category, opt.rand_trans, opt.rand_rot).gen_pts_from_pdb(pdb_path, opt.ntrans)
     toc = time.perf_counter()
-    print('Used %d ms.' %((toc - tic) * 1000))
+    print('Used %d ms.' % ((toc - tic) * 1000))

@@ -206,10 +206,10 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser()
     parser.add_argument('-c',
-        '--category', type=str, required = True, help='category (phase) name: sg (single gyroid), dg (double gyroid), dd (double diamond), p (plumber\'s nightmare')
+        '--category', type=str, required = True, help='category (phase) name: sg (single gyroid), dg (double gyroid), dd (double diamond), p (P phase, plumber\'s nightmare)')
     parser.add_argument('-n', '--num_samples', required = True, type=int, help='how many samples to generate')
-    parser.add_argument('-t', '--rand_trans', default = True, type=bool, help='whether to apply random periodic translation')
-    parser.add_argument('-r', '--rand_rot', default = True, type=int, help='whether to apply random periodic rotation')
+    parser.add_argument('-t', '--rand_trans', action='store_true', help='whether to apply random periodic translation')
+    parser.add_argument('-r', '--rand_rot', action='store_true', help='whether to apply random periodic rotation')
     opt = parser.parse_args()
     
     print('Generating point clouds of %s structure...' % opt.category)
@@ -222,4 +222,4 @@ if __name__ == "__main__":
         
     NetPts(opt.category, opt.num_samples, opt.rand_trans, opt.rand_rot).gen_net_pts()
     toc = time.perf_counter()
-    print('Used %d s.' %(toc - tic))
+    print('Used %d s.' % (toc - tic))

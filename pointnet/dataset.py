@@ -43,7 +43,7 @@ def get_segmentation_classes(root):
             print("category {} num segmentation classes {}".format(item, num_seg_classes))
             f.write("{}\t{}\n".format(item, num_seg_classes))
 
-def gen_modelnet_id(root):
+def gen_phase_id(root):
     classes = []
     with open(os.path.join(root, 'train.txt'), 'r') as f:
         for line in f:
@@ -112,7 +112,6 @@ class PhaseDataset(data.Dataset):
         cls = self.classes[self.datapath[index][0]]
         point_set = np.loadtxt(fn[1]).astype(np.float32)
         seg = np.loadtxt(fn[2]).astype(np.int64)
-        #print(point_set.shape, seg.shape)
         choice = np.random.choice(len(point_set), self.npoints, replace=True)
         #resample
         point_set = point_set[choice, :]
@@ -141,8 +140,8 @@ class PhaseDataset(data.Dataset):
 if __name__ == '__main__':
     dataset = sys.argv[1]
     datapath = sys.argv[2]
-    gen_modelnet_id(datapath)
-    d = ModelNetDataset(root=datapath)
+    gen_phase_id(datapath)
+    d = PhaseDataset(root=datapath)
     print(len(d))
     print(d[0])
 

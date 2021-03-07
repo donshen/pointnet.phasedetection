@@ -2,6 +2,7 @@ from __future__ import print_function
 import argparse
 import os
 import sys
+sys.path.append("..")
 import random
 import torch
 import torch.nn.parallel
