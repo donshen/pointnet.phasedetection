@@ -74,7 +74,7 @@ The PointNet architecture is taken from [[1]](https://arxiv.org/abs/1612.00593),
 ### Data Downloads
 
 
-1. Download pre-processed `point_clouds` and raw training data `raw` from [https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing](https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing)
+1. Download pre-processed `point_clouds` and raw training data `raw` from [https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing](https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing). Note: the `raw` folder contains 100 example `.pdb` (~1.1 G) files for each structure. A complete data set contains ~38 G of data and will be available upon request.
 2. Put `point_clouds` and `raw` into the `data` folder.
 
 
