@@ -35,7 +35,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About This Project
 
-![Product Name Screen Shot][product-screenshot]
+![pointnet-schematic][pointnet-schematic]
 This repo uses PointNet [[1]](https://arxiv.org/abs/1612.00593), a neural network designed for computer vision applications using point clouds. In this study, a properly-trained PointNet was demonstrated to be highly generalizable on morphology detection in molecular simulations, and can be potentially extended to discovery of emerging ordered patterns from non-equilibrium systems.
 
 The PointNet was trained on atomic coordinates of mesophases including lamellar (LAM), body-centered cubic (BCC), hexagonally-packed cylinder (HPC), hexagonally-perforeated lamellar (HPL), and disorderd (DIS) from molecular dynamics (MD) simulation trajectories from our previous work [[2]](https://pubs.acs.org/doi/10.1021/jacs.0c01829), [[3]](https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.9b01248), [[4]](https://pubs.acs.org/doi/abs/10.1021/acsnano.7b09122) and synthetic point clouds for ordered network morphologies that were absent from previous simulations. 
@@ -104,6 +104,26 @@ The PointNet architecture is taken from [[1]](https://arxiv.org/abs/1612.00593),
      -f: implement feature transformation (spatial transformer network) 
 
 
+<!-- RESULTS -->
+## Results
+
+| Model | Strategy | Accuracy | Number of Points |
+| :---: | :---: | :---: | :---: | 
+| A | translation | 0.976 | 1000 |
+| B | translation + STN | 0.964 | 1200 |
+| C | translation + rotation | 0.987 | 1000 |
+| D | translation + rotation + STN | 0.996 | 1000 |
+
+Confusion Matrices
+* Model A:
+![CM_A](images/CM_A.pdf)
+* Model B:
+![CM_B](images/CM_B.pdf)
+* Model C:
+![CM_C](images/CM_C.pdf)
+* Model D:
+![CM_D](images/CM_D.pdf)
+
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -127,4 +147,4 @@ Project Link: [https://github.com/donshen/pointnet.phasedetection](https://githu
 [3]: https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.9b01248
 [4]: https://pubs.acs.org/doi/abs/10.1021/acsnano.7b09122
 [5]: https://doi.org/10.1039/C9SC02097G
-[product-screenshot]: images/POINTNET_SCHEME_PRE.png
+[pointnet-schematic]: images/POINTNET_SCHEME_PRE.png
