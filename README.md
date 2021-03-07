@@ -115,14 +115,8 @@ The PointNet architecture is taken from [[1]](https://arxiv.org/abs/1612.00593),
 | D | translation + rotation + STN | 0.996 | 1000 |
 
 ### Confusion Matrices
-* Model A:
-![CM_A](images/CM_A.jpg)
-* Model B:
-![CM_B](images/CM_B.jpg)
-* Model C:
-![CM_C](images/CM_C.jpg)
-* Model D:
-![CM_D](images/CM_D.jpg)
+
+![CM](images/CM.png)
 
 
 <!-- CONTRIBUTING -->
