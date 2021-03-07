@@ -127,8 +127,8 @@ The PointNet architecture is taken from [[1]](https://arxiv.org/abs/1612.00593),
 
 ### Confusion Matrices
 
-![CM](images/CM.png){height=400px width=500px}
 
+<img src="images/CM.png" width="750" height="750">
 
 <!-- CONTRIBUTING -->
 ## Contributing
