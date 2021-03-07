@@ -33,7 +33,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About This Project
 
 ![Product Name Screen Shot][product-screenshot]
 This repo uses PointNet [[1]](https://arxiv.org/abs/1612.00593), a neural network designed for computer vision applications using point clouds. In this study, a properly-trained PointNet was demonstrated to be highly generalizable on morphology detection in molecular simulations, and can be potentially extended to discovery of emerging ordered patterns from non-equilibrium systems.
@@ -42,7 +42,10 @@ The PointNet was trained on atomic coordinates of mesophases including lamellar 
 
 
 
-### Built With
+### Relevant Work
+The PointNet architecture is taken from [[1]](https://arxiv.org/abs/1612.00593), also see implementation in Tensorflow (https://github.com/charlesq34/pointnet) and in PyTorch (https://github.com/fxia22/pointnet.pytorch). DeFever et. al. [[5]](https://doi.org/10.1039/C9SC02097G) also presented the use of PointNet to identify local structures in coarsed grained MD simulations.
+
+
 
 
 
@@ -55,8 +58,6 @@ The PointNet was trained on atomic coordinates of mesophases including lamellar 
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
   ```sh
   pip install -m requirements.txt
   ```
@@ -64,7 +65,7 @@ This is an example of how to list things you need to use the software and how to
 ### Data Downloads
 
 
-1. Doownload pre-processed and raw training data from [https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing](https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing)
+1. Download pre-processed and raw training data from [https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing](https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing)
 
 
 
@@ -94,16 +95,9 @@ Project Link: [https://github.com/donshen/pointnet.phasedetection](https://githu
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[1]: https://arxiv.org/abs/1612.00593
+[2]: https://pubs.acs.org/doi/10.1021/jacs.0c01829
+[3]: https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.9b01248
+[4]: https://pubs.acs.org/doi/abs/10.1021/acsnano.7b09122
+[5]: https://doi.org/10.1039/C9SC02097G
 [product-screenshot]: images/POINTNET_SCHEME_PRE.png
