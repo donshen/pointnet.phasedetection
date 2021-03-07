@@ -9,24 +9,33 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-this-project">About This Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#relevant-work">Relevant Work</a></li>
       </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#data-downloads">Data Downloads</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    <li>
+      <a href="#usage">Usage</a>
+      <ul>
+        <li><a href="#data-preprocessing">Data Preprocessing</a></li>
+        <li><a href="#training">Training</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#results">Results</a>
+      <ul>
+        <li><a href="#test-accuracy">Test Accuracy</a></li>
+        <li><a href="#confusion-matrices">Confusion Matrices</a></li>
+      </ul>
+    </li>    
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
@@ -74,7 +83,7 @@ The PointNet architecture is taken from [[1]](https://arxiv.org/abs/1612.00593),
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-* Data Preprocessing:
+### Data Preprocessing:
   - Generate point clouds (normalized coordinates of minority components) from original `.pdb` files (simulation frames):
      ```sh
      cd  data
@@ -92,7 +101,7 @@ The PointNet architecture is taken from [[1]](https://arxiv.org/abs/1612.00593),
      -t: perform random translations of point clouds wrapped by periodic boundary conditions\
      -r: perform random rotations of point clouds wrapped by periodic boundary conditions\
      -n: total number of point clouds (train + test) to generate 
-* Training:
+### Training:
      ```sh
      cd  utils
      python train_classification.py -b 64 -n 1000 -e 100 -d ../data/point_clouds/ -f 
@@ -101,11 +110,13 @@ The PointNet architecture is taken from [[1]](https://arxiv.org/abs/1612.00593),
      -n: number of points selected from each point cloud, so that the input point clouds will have uniform dimension n*3\
      -e: number of training epochs\
      -d: data path\
-     -f: implement feature transformation (spatial transformer network) 
+     -f: implement feature transformation (spatial transformer network, or STN) 
 
 
 <!-- RESULTS -->
 ## Results
+
+### Test Accuracy
 
 | Model | Strategy | Accuracy | Number of Points |
 | :---: | :---: | :---: | :---: | 
