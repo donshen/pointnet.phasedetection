@@ -147,19 +147,18 @@ Project Link: [https://github.com/donshen/pointnet.phasedetection](https://githu
 
 <!-- REFERENCE -->
 ## Reference
-1. [C. R. Qi, H. Su, K. Mo and L. J. Guibas, PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation. _Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition_, **2017**, 652–660.](https://arxiv.org/abs/1612.00593)
-2. [Shen, Z. Chen, L. J.; Vernadskaia, V.; Ertem, S. P.; Mahanthappa, M. K.; Hillmyer, M. A. Reineke, T. M.; Lodge, T. P.; Siepmann, J. I.
-From Order to Disorder: Computational Design of Triblock Amphiphiles with 1 nm Domains. _J. Am. Chem. Soc_. **2020**, _142_, 9352‐9362.](https://pubs.acs.org/doi/10.1021/jacs.0c01829)
-3. [Barreda, L.; Shen, Z.; Chen, Q. P.; Lodge, T. P.; Siepmann, J. I.; Hillmyer, M. A. Synthesis, Simulation, and Self‐Assembly of a Model
-Amphiphile to Push the Limits of Block Polymer Nanopatterning. _Nano Lett._ **2019**, _19_, 4458‐4462.](https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.9b01248)
-4. [Chen, Q. P.; Barreda, L.; Oquendo, L. E.; Hillmyer, M. A.; Lodge, T. P.; Siepmann, J. I. Computational Design of High-χ Block Oligomers for Accessing 1 Nm Domains. _ACS Nano_ **2018**, _12_, 4351− 4361.](https://pubs.acs.org/doi/abs/10.1021/acsnano.7b09122)
-5. [R. S. DeFever, C. Targonski, S. W. Hall, M. C. Smith, and S. Sarupria,
+1. C. R. Qi, H. Su, K. Mo and L. J. Guibas, PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation. _Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition_, **2017**, 652–660.[link](https://arxiv.org/abs/1612.00593)
+2. Shen, Z. Chen, L. J.; Vernadskaia, V.; Ertem, S. P.; Mahanthappa, M. K.; Hillmyer, M. A. Reineke, T. M.; Lodge, T. P.; Siepmann, J. I.
+From Order to Disorder: Computational Design of Triblock Amphiphiles with 1 nm Domains. _J. Am. Chem. Soc_. **2020**, _142_, 9352‐9362.[link](https://pubs.acs.org/doi/10.1021/jacs.0c01829)
+3. Barreda, L.; Shen, Z.; Chen, Q. P.; Lodge, T. P.; Siepmann, J. I.; Hillmyer, M. A. Synthesis, Simulation, and Self‐Assembly of a Model
+Amphiphile to Push the Limits of Block Polymer Nanopatterning. _Nano Lett._ **2019**, _19_, 4458‐4462. [link](https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.9b01248)
+4. Chen, Q. P.; Barreda, L.; Oquendo, L. E.; Hillmyer, M. A.; Lodge, T. P.; Siepmann, J. I. Computational Design of High-χ Block Oligomers for Accessing 1 Nm Domains. _ACS Nano_ **2018**, _12_, 4351− 4361. [link](https://pubs.acs.org/doi/abs/10.1021/acsnano.7b09122)
+5. R. S. DeFever, C. Targonski, S. W. Hall, M. C. Smith, and S. Sarupria,
 A generalized deep learning approach for local structure identification in
-molecular simulations, _Chem. Sci._ **2019**, _10_, 7503–7515.](https://doi.org/10.1039/C9SC02097G)
+molecular simulations, _Chem. Sci._ **2019**, _10_, 7503–7515. [link](https://doi.org/10.1039/C9SC02097G)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [1]: https://arxiv.org/abs/1612.00593
 [2]: https://pubs.acs.org/doi/10.1021/jacs.0c01829
 [3]: https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.9b01248
