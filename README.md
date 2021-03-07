@@ -65,7 +65,8 @@ The PointNet architecture is taken from [[1]](https://arxiv.org/abs/1612.00593),
 ### Data Downloads
 
 
-1. Download pre-processed and raw training data from [https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing](https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing)
+1. Download pre-processed `point_clouds` and raw training data `raw` from [https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing](https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing)
+2. Put `point_clouds` and `raw` into the `data` folder.
 
 
 
@@ -73,9 +74,26 @@ The PointNet architecture is taken from [[1]](https://arxiv.org/abs/1612.00593),
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+* Data Preprocessing:
+  - Generate point clouds (normalized coordinates of minority components) from original `.pdb` files (simulation frames):
+     ```sh
+     cd  data
+     python process_pdb.py -c LAM -t -r 
+     ```
+     -c: name of the phases available form `.pdb` files (BCC, DIS, HPC, HPL, or LAM)\
+     -t: perform random translations of point clouds wrapped by periodic boundary conditions\
+     -r: perform random rotations of point clouds wrapped by periodic boundary conditions
+   - Generate point clouds of network structures:
+     ```sh
+     cd  data
+     python process_net.py -c DG -t -r -n 3000
+     ```
+     -c: name of the network phases (DD, DG, P, or SG)\
+     -t: perform random translations of point clouds wrapped by periodic boundary conditions\
+     -r: perform random rotations of point clouds wrapped by periodic boundary conditions\
+     -n: total number of point clouds (train + test) to generate 
+     
 
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 
 <!-- CONTRIBUTING -->
