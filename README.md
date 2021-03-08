@@ -92,7 +92,7 @@ The PointNet architecture is taken from [[1](https://arxiv.org/abs/1612.00593)],
      ```
      -c: name of the phases available form `.pdb` files (BCC, DIS, HPC, HPL, or LAM)\
      -t: perform random translations of point clouds wrapped by periodic boundary conditions\
-     -r: perform random rotations of point clouds wrapped by periodic boundary conditions
+     -r: perform random uniform rotations of point clouds wrapped by periodic boundary conditions
    - Generate point clouds of network structures:
      ```sh
      cd  data
@@ -100,7 +100,7 @@ The PointNet architecture is taken from [[1](https://arxiv.org/abs/1612.00593)],
      ```
      -c: name of the network phases (DD, DG, P, or SG)\
      -t: perform random translations of point clouds wrapped by periodic boundary conditions\
-     -r: perform random rotations of point clouds wrapped by periodic boundary conditions\
+     -r: perform random uniform rotations of point clouds wrapped by periodic boundary conditions\
      -n: total number of point clouds (train + test) to generate 
 ### Training:
   - Train the PointNet using preprocessed data:
