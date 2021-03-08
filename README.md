@@ -36,23 +36,24 @@
       </ul>
     </li>    
     <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#reference">Reference</a></li>
   </ol>
 </details>
 
 
 
 <!-- ABOUT THE PROJECT -->
-## About This Project
+## § About This Project
 
 ![pointnet-schematic][pointnet-schematic]
-This repo uses PointNet [[1]](https://arxiv.org/abs/1612.00593), a neural network designed for computer vision applications using point clouds. In this study, a properly-trained PointNet was demonstrated to be highly generalizable on morphology detection in molecular simulations, and can be potentially extended to discovery of emerging ordered patterns from non-equilibrium systems.
+This repo uses PointNet [[1](https://arxiv.org/abs/1612.00593)], a neural network designed for computer vision applications using point clouds. In this study, a properly-trained PointNet was demonstrated to be highly generalizable on morphology detection in molecular simulations, and can be potentially extended to discovery of emerging ordered patterns from non-equilibrium systems.
 
-The PointNet was trained on atomic coordinates of mesophases including lamellar (LAM), body-centered cubic (BCC), hexagonally-packed cylinder (HPC), hexagonally-perforeated lamellar (HPL), and disorderd (DIS) from molecular dynamics (MD) simulation trajectories from our previous work [[2]](https://pubs.acs.org/doi/10.1021/jacs.0c01829), [[3]](https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.9b01248), [[4]](https://pubs.acs.org/doi/abs/10.1021/acsnano.7b09122) and synthetic point clouds for ordered network morphologies that were absent from previous simulations. 
+The PointNet was trained on atomic coordinates of mesophases including lamellar (LAM), body-centered cubic (BCC), hexagonally-packed cylinder (HPC), hexagonally-perforeated lamellar (HPL), and disorderd (DIS) from molecular dynamics (MD) simulation trajectories from our previous work [[2](https://pubs.acs.org/doi/10.1021/jacs.0c01829), [3](https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.9b01248), [4](https://pubs.acs.org/doi/abs/10.1021/acsnano.7b09122)] and synthetic point clouds for ordered network morphologies that were absent from previous simulations. 
 
 
 
 ### Relevant Work
-The PointNet architecture is taken from [[1]](https://arxiv.org/abs/1612.00593), also see implementation in Tensorflow (https://github.com/charlesq34/pointnet) and in PyTorch (https://github.com/fxia22/pointnet.pytorch). DeFever et. al. [[5]](https://doi.org/10.1039/C9SC02097G) also presented the use of PointNet to identify local structures in coarsed grained MD simulations.
+The PointNet architecture is taken from [[1](https://arxiv.org/abs/1612.00593)], also see implementation in Tensorflow (https://github.com/charlesq34/pointnet) and in PyTorch (https://github.com/fxia22/pointnet.pytorch). DeFever et. al. [[5](https://doi.org/10.1039/C9SC02097G)] also presented the use of PointNet to identify local structures in coarsed grained MD simulations.
 
 
 
@@ -61,7 +62,7 @@ The PointNet architecture is taken from [[1]](https://arxiv.org/abs/1612.00593),
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## § Getting Started
 
 
 
@@ -74,14 +75,14 @@ The PointNet architecture is taken from [[1]](https://arxiv.org/abs/1612.00593),
 ### Data Downloads
 
 
-1. Download pre-processed `point_clouds` and raw training data `raw` from [https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing](https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing)
+1. Download pre-processed `point_clouds` and raw training data `raw` from [https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing](https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing). Note: the `raw` folder contains 100 example `.pdb` (~1.1 G) files for each structure. A complete data set contains ~38 G of data and will be available upon request.
 2. Put `point_clouds` and `raw` into the `data` folder.
 
 
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## § Usage
 
 ### Data Preprocessing:
   - Generate point clouds (normalized coordinates of minority components) from original `.pdb` files (simulation frames):
@@ -115,7 +116,7 @@ The PointNet architecture is taken from [[1]](https://arxiv.org/abs/1612.00593),
 
 
 <!-- RESULTS -->
-## Results
+## § Results
 
 ### Test Accuracy
 
@@ -132,7 +133,7 @@ The PointNet architecture is taken from [[1]](https://arxiv.org/abs/1612.00593),
 <img src="images/CM.png" width="750" height="750">
 
 <!-- CONTRIBUTING -->
-## Contributing
+## § Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -144,10 +145,20 @@ Contributions are what make the open source community such an amazing place to b
 
 Project Link: [https://github.com/donshen/pointnet.phasedetection](https://github.com/donshen/pointnet.phasedetection)
 
+<!-- REFERENCE -->
+## § Reference
+1. C. R. Qi, H. Su, K. Mo and L. J. Guibas, PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation. _Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition_, **2017**, 652–660. [[link](https://arxiv.org/abs/1612.00593)]
+2. Shen, Z. Chen, L. J.; Vernadskaia, V.; Ertem, S. P.; Mahanthappa, M. K.; Hillmyer, M. A. Reineke, T. M.; Lodge, T. P.; Siepmann, J. I.
+From Order to Disorder: Computational Design of Triblock Amphiphiles with 1 nm Domains. _J. Am. Chem. Soc_. **2020**, _142_, 9352‐9362. [[link](https://pubs.acs.org/doi/10.1021/jacs.0c01829)]
+3. Barreda, L.; Shen, Z.; Chen, Q. P.; Lodge, T. P.; Siepmann, J. I.; Hillmyer, M. A. Synthesis, Simulation, and Self‐Assembly of a Model
+Amphiphile to Push the Limits of Block Polymer Nanopatterning. _Nano Lett._ **2019**, _19_, 4458‐4462. [[link](https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.9b01248)]
+4. Chen, Q. P.; Barreda, L.; Oquendo, L. E.; Hillmyer, M. A.; Lodge, T. P.; Siepmann, J. I. Computational Design of High-_χ_ Block Oligomers for Accessing 1 Nm Domains. _ACS Nano_ **2018**, _12_, 4351− 4361. [[link](https://pubs.acs.org/doi/abs/10.1021/acsnano.7b09122)]
+5. R. S. DeFever, C. Targonski, S. W. Hall, M. C. Smith, and S. Sarupria,
+A generalized deep learning approach for local structure identification in
+molecular simulations, _Chem. Sci._ **2019**, _10_, 7503–7515. [[link](https://doi.org/10.1039/C9SC02097G)]
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [1]: https://arxiv.org/abs/1612.00593
 [2]: https://pubs.acs.org/doi/10.1021/jacs.0c01829
 [3]: https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.9b01248
