@@ -134,6 +134,9 @@ The highest accuracy and the corresponding confusion matrices for different mode
 
 <img src="images/CM.png" width="750" height="750">
 
+### Model Downloads
+Download model states during training from `trained_models` [https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing](https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing). 
+
 <!-- CONTRIBUTING -->
 ## § Contributing
 
