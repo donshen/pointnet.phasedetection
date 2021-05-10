@@ -87,7 +87,7 @@ The PointNet architecture is taken from [[1](https://arxiv.org/abs/1612.00593)],
 ### Data Preprocessing:
   - Generate point clouds (normalized coordinates of minority components) from original `.pdb` files (simulation frames):
      ```sh
-     cd  data
+     cd ./data
      python process_pdb.py -c LAM -t -r 
      ```
      -c: name of the phases available form `.pdb` files (BCC, DIS, HPC, HPL, or LAM)\
@@ -95,7 +95,7 @@ The PointNet architecture is taken from [[1](https://arxiv.org/abs/1612.00593)],
      -r: perform random uniform rotations of point clouds wrapped by periodic boundary conditions
    - Generate point clouds of network structures:
      ```sh
-     cd  data
+     cd ./data
      python process_net.py -c DG -t -r -n 3000
      ```
      -c: name of the network phases (DD, DG, P, or SG)\
@@ -105,7 +105,7 @@ The PointNet architecture is taken from [[1](https://arxiv.org/abs/1612.00593)],
 ### Training:
   - Train the PointNet using preprocessed data:
      ```sh
-     cd  utils
+     cd ./utils
      python train_classification.py -b 64 -n 1000 -e 100 -d ../data/point_clouds/ -f 
      ``` 
      -b: size of minibatch\
