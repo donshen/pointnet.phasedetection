@@ -44,8 +44,12 @@
 
 <!-- ABOUT THE PROJECT -->
 ## § About This Project
-
 <img src="images/POINTNET_SCHEME_PRE.png" alt="drawing" width="550"/>
+
+### Publication Detail
+
+[Development of a PointNet for Detecting Morphologies of Self-Assembled Block Oligomers in Atomistic Simulations](https://doi.org/10.1021/acs.jpcb.1c02389)
+
 This repo uses PointNet [[1](https://arxiv.org/abs/1612.00593)], a neural network designed for computer vision applications using point clouds. In this study, a properly-trained PointNet was demonstrated to be highly generalizable on morphology detection in molecular simulations, and can be potentially extended to discovery of emerging ordered patterns from non-equilibrium systems.
 
 The PointNet was trained on atomic coordinates of mesophases including lamellar (_LAM_), body-centered cubic (_BCC_), hexagonally-packed cylinder (_HPC_), hexagonally-perforeated lamellar (_HPL_), and disorderd (_DIS_) from molecular dynamics (MD) simulation trajectories from our previous work [[2](https://pubs.acs.org/doi/10.1021/jacs.0c01829), [3](https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.9b01248), [4](https://pubs.acs.org/doi/abs/10.1021/acsnano.7b09122)] and synthetic point clouds for ordered network morphologies that were absent from previous simulations, including double diamond (_DD_), double gyroid (_DG_), plumber's nightmare (_P_), and single gyroid (_SG_).
@@ -75,7 +79,7 @@ The PointNet architecture is taken from [[1](https://arxiv.org/abs/1612.00593)],
 ### Data Downloads
 
 
-1. Download pre-processed `point_clouds` and raw training data `raw` from [https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing](https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing). Note: the `raw` folder contains 100 example `.pdb` (~1.1 G) files for each structure. A complete data set contains ~38 G of data and will be available upon request.
+1. Download pre-processed `point_clouds` and raw training data `raw` from [here](https://drive.google.com/drive/folders/1N8BjACdNCKTmEnRF46VKkoHufLV8VoMt?usp=sharing). Note: the `raw` folder contains 100 example `.pdb` (~1.1 G) files for each structure. A complete data set contains ~38 G of data and will be available upon request.
 2. Put `point_clouds` and `raw` into the `data` folder.
 
 
@@ -170,3 +174,4 @@ molecular simulations, _Chem. Sci._ **2019**, _10_, 7503–7515. [[link](https:/
 [4]: https://pubs.acs.org/doi/abs/10.1021/acsnano.7b09122
 [5]: https://doi.org/10.1039/C9SC02097G
 [pointnet-schematic]: images/POINTNET_SCHEME_PRE.png
+
