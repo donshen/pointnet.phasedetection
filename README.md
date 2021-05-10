@@ -122,12 +122,12 @@ The highest accuracy and the corresponding confusion matrices for different mode
 
 ### Test Accuracy
 
-| Model | Strategy | Accuracy | Number of Points |
+| Model | Strategy | Accuracy | CI |
 | :---: | :---: | :---: | :---: | 
-| A | translation | 0.976 | 1000 |
-| B | translation + STN | 0.964 | 1200 |
-| C | translation + rotation | 0.987 | 1000 |
-| **D** | translation + rotation + STN | **0.996** | 1000 |
+| A | translation | 0.973 | 0.010 |
+| B | translation + STN | 0.957 | 0.011 |
+| C | translation + rotation | 0.983 | 0.009 |
+| **D** | translation + rotation + STN | **0.990** | 0.005 |
 
 ### Confusion Matrices
 
