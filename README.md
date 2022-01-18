@@ -176,7 +176,7 @@ molecular simulations, _Chem. Sci._ **2019**, _10_, 7503–7515. [[link](https:/
 [pointnet-schematic]: images/POINTNET_SCHEME_PRE.png
 
 ## § Citation
-'''
+```
 @article{shen2021development,
 author = {Shen, Zhengyuan and Sun, Yangzesheng and Lodge, Timothy P. and Siepmann, J. Ilja},
 title = {Development of a PointNet for detecting morphologies of self-assembled block oligomers in atomistic simulations},
@@ -190,4 +190,4 @@ URL = {https://doi.org/10.1021/acs.jpcb.1c02389},
 
 }
 
-'''
+```
