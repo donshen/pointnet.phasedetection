@@ -92,13 +92,14 @@ class Pdb2Pts(object):
     def gen_pts_from_pdb(self, pdb_path, ntrans):     
         file_list = os.listdir(pdb_path)
         pdb_files = [i for i in file_list if 'pdb' in i] 
+        idx = 1
         for i in tqdm(range(1, len(pdb_files) + 1)): 
             universe = mda.Universe(pdb_path + '/' + pdb_files[i - 1])
             oxygen = universe.select_atoms('name O')
             Lx, Ly, Lz = universe.dimensions[:3]
             pos_oxygen = oxygen.positions
             
-            for rep in range(ntrans):   
+            for _ in range(ntrans):   
                 # Apply a random periodic translation around a vector with random x, y, and z components that are <= period
                 if self.trans:       
                     pos_oxygen = self.rand_periodic_translation(pos_oxygen, Lx, Ly, Lz)               
@@ -115,12 +116,13 @@ class Pdb2Pts(object):
                     pos_oxygen = pos_oxygen[np.logical_and(pos_oxygen[:, 1] <= Ly, pos_oxygen[:, 1] >= 0)]
                     pos_oxygen = pos_oxygen[np.logical_and(pos_oxygen[:, 2] <= Lz, pos_oxygen[:, 2] >= 0)]
 
-                file_name = ('coord_O_%s_%d' % (opt.category, i))
+                file_name = f'coord_O_{opt.category}_{idx}'
+                idx += 1
                 
                 # Save .pts files
                 pts_file = open('point_clouds/' + opt.category + '/points/' + file_name + '.pts', 'w')
                 for k in range(pos_oxygen.shape[0]):
-                    pts_file.write(np.str(pos_oxygen[k, 0]) + ' ' + np.str(pos_oxygen[k, 1]) + ' ' + np.str(pos_oxygen[k, 2]) + '\n')
+                    pts_file.write(str(pos_oxygen[k, 0]) + ' ' + str(pos_oxygen[k, 1]) + ' ' + str(pos_oxygen[k, 2]) + '\n')
                 pts_file.close()
                 
                 # Save .seg files
