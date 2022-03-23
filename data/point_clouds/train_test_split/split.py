@@ -37,8 +37,9 @@ def __main__():
         cls_idx_test = [i for i in range(1, n_points + 1) if i not in cls_idx_train]
         train_id[:, idx] = cls_idx_train
         test_id[:, idx] =  cls_idx_test 
-        for idx_train, idx_test in zip(train_id[:, idx], test_id[:, idx]):
+        for idx_train in train_id[:, idx]:
             data_train.append(f'"shape_data/{cls}/coord_O_{cls}_{int(idx_train)}"')
+        for idx_test in test_id[:, idx]:
             data_test.append(f'"shape_data/{cls}/coord_O_{cls}_{int(idx_test)}"')
     
     ftrain = open('shuffled_train_file_list.json','w')
