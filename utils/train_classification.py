@@ -2,7 +2,6 @@ from __future__ import print_function
 import argparse
 import os
 import sys
-sys.path.append("..")
 import random
 import torch
 import torch.nn.parallel
@@ -133,11 +132,8 @@ for epoch in range(opt.nepoch):
                 acc_m = np.sum((pred_choice.data.cpu().numpy().ravel()[ind_m] == m))/np.sum(ind_m)
             acc_class.append(acc_m)
         
-        print('[%d: %d/%d] train loss: %.3f accuracy: %.3f' %
-              (epoch, i, num_batch, loss.item(), correct.item() / float(opt.batchSize)))
-
-        ftrain.write(np.str(epoch) + ' ' + np.str(loss.item()) + ' ' + 
-                     np.str(correct.item()/float(opt.batchSize)) + '\n')
+        print(f"[{epoch}: {i}/{int(num_batch)}] train loss: {loss.item()} accuracy: {correct.item()/float(opt.batchSize):.3f}")
+        ftrain.write(f"{epoch} {loss.item()} {correct.item() / float(opt.batchSize)} \n")
         
         if i % (num_batch+1) == 0:
             j, data = next(enumerate(testdataloader, 0))
@@ -161,11 +157,8 @@ for epoch in range(opt.nepoch):
                     acc_m = np.sum((pred_choice.data.cpu().numpy().ravel()[ind_m] == m))/np.sum(ind_m)
                 acc_class.append(acc_m)
 
-            print('[%d: %d/%d] %s loss: %f accuracy: %.3f' % 
-                  (epoch, i, num_batch, blue('test'), loss.item(),             
-                   correct.item()/float(opt.batchSize)))
-            ftest.write(np.str(epoch) + ' ' + np.str(loss.item()) + ' ' + 
-                        np.str(correct.item()/float(opt.batchSize)) + '\n')
+            print(f"[{epoch}: {i}/{int(num_batch)}] {blue('test')} loss: {loss.item()} accuracy: {correct.item()/float(opt.batchSize):.3f}")
+            ftest.write(f"{epoch} {loss.item()} {correct.item() / float(opt.batchSize)} \n")
         
     torch.save(classifier.state_dict(), '%s/pts_%s/cls_model_%d.pth' % (opt.outf, str(opt.num_points), epoch))
 
