@@ -6,7 +6,6 @@ import torch.utils.data
 from torch.autograd import Variable
 import numpy as np
 import torch.nn.functional as F
-import random
 
 class STN3d(nn.Module):
     def __init__(self):
@@ -84,54 +83,51 @@ class STNkd(nn.Module):
         x = x.view(-1, self.k, self.k)
         return x
 
+#PointNetEncoder
 class PointNetfeat(nn.Module):
-    def __init__(self, global_feat = True, feature_transform = False):
+    def __init__(self, global_feat = True, feature_transform = False, isLast = False):
         super(PointNetfeat, self).__init__()
         self.stn = STN3d()
         self.conv1 = torch.nn.Conv1d(3, 64, 1)
-        self.conv2 = torch.nn.Conv1d(64, 64, 1)
-        self.conv3 = torch.nn.Conv1d(64, 64, 1)
-        self.conv4 = torch.nn.Conv1d(64, 128, 1)
-        self.conv5 = torch.nn.Conv1d(128, 1024, 1)
+        self.conv2 = torch.nn.Conv1d(64, 128, 1)
+        self.conv3 = torch.nn.Conv1d(128, 1024, 1)
         self.bn1 = nn.BatchNorm1d(64)
-        self.bn2 = nn.BatchNorm1d(64)
-        self.bn3 = nn.BatchNorm1d(64)
-        self.bn4 = nn.BatchNorm1d(128)
-        self.bn5 = nn.BatchNorm1d(1024)
+        self.bn2 = nn.BatchNorm1d(128)
+        self.bn3 = nn.BatchNorm1d(1024)
         self.global_feat = global_feat
         self.feature_transform = feature_transform
         if self.feature_transform:
             self.fstn = STNkd(k=64)
 
-    def forward(self, x):
+    def forward(self, x):               
         n_pts = x.size()[2]
         trans = self.stn(x)
         x = x.transpose(2, 1)
         
-        #Originl points without spatial transformation
+        # Originl points without spatial transformation
         orig = x 
-      
+        
+        x = torch.bmm(x, trans) # batch matrix multiply (result from T-net)
         x = x.transpose(2, 1)
         x = F.relu(self.bn1(self.conv1(x)))
-        x = F.relu(self.bn2(self.conv2(x)))
-        
+
         if self.feature_transform:
             trans_feat = self.fstn(x)
             x = x.transpose(2,1)
             x = torch.bmm(x, trans_feat)
             x = x.transpose(2,1)
-
         else:
             trans_feat = None
 
         pointfeat = x
+        x = F.relu(self.bn2(self.conv2(x)))
+        x = self.bn3(self.conv3(x))
         
-        x = F.relu(self.bn3(self.conv3(x)))
-        x = F.relu(self.bn4(self.conv4(x)))
-        x = self.bn5(self.conv5(x))
-               
         # Save numpy array of the critical points that contributes to max pooling from the last epoch.
+        
         crit_index = torch.argmax(x, 2)
+        # print(cs_index.size())
+        # Record critical points
         critPoints = []
         allPoints = []
         for i in range(x.size()[0]):
@@ -145,7 +141,7 @@ class PointNetfeat(nn.Module):
         np.savez('critical_pts.npz', points = critPoints)
         
         
-        x = torch.max(x, 2, keepdim=True)[0]
+        x = torch.max(x, 2, keepdim=True)[0] 
         x = x.view(-1, 1024)
         if self.global_feat:
             return x, trans, trans_feat
@@ -172,7 +168,6 @@ class PointNetCls(nn.Module):
         x = F.relu(self.bn2(self.dropout(self.fc2(x))))
         x = self.fc3(x)
         return F.log_softmax(x, dim=1), trans, trans_feat
-
 
 class PointNetDenseCls(nn.Module):
     def __init__(self, k = 2, feature_transform=False):
@@ -210,7 +205,6 @@ def feature_transform_regularizer(trans):
     loss = torch.mean(torch.norm(torch.bmm(trans, trans.transpose(2,1)) - I, dim=(1,2)))
     return loss
 
-
 def normalize_point_cloud(batch_data):
     normalized_data = np.zeros(batch_data.shape, dtype=np.float32)
     for k in range(batch_data.shape[0]):
@@ -223,8 +217,7 @@ def normalize_point_cloud(batch_data):
         normalized_pc = batch_data[k,:,:3]/np.max(np.linalg.norm(batch_data[k,:,:3],axis=1))
         
         normalized_data[k] = np.concatenate((normalized_pc, batch_data[k,:,3:]), axis=1)
-    return normalized_data
-        
+    return normalized_data     
 
 if __name__ == '__main__':
     sim_data = Variable(torch.rand(32,3,2500))
