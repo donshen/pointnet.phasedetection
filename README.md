@@ -110,13 +110,13 @@ The PointNet architecture is taken from [[1](https://arxiv.org/abs/1612.00593)],
   - Train the PointNet using preprocessed data:
      ```sh
      cd ./utils
-     python train_classification.py -b 64 -n 1000 -e 100 -d ../data/point_clouds/ -f 
+     python train_classification.py -b 128 -n 1000 -e 100 -d ../data/point_clouds/  
      ``` 
      -b: size of minibatch\
      -n: number of points selected from each point cloud, so that the input point clouds will have uniform dimension n*3\
      -e: number of training epochs\
      -d: data path\
-     -f: implement feature transformation (spatial transformer network, or STN) 
+     
 
 
 <!-- RESULTS -->
